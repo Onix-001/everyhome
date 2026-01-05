@@ -1,0 +1,16 @@
+<h2>Chat</h2>
+
+<div style="border:1px solid #ccc; height:300px; overflow-y:scroll;">
+    {% for msg in messages %}
+        <p>
+            <strong>{{ msg.sender.username }} :</strong>
+            {{ msg.content }}
+        </p>
+    {% endfor %}
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="message" placeholder="Votre message" required>
+    <button type="submit">Envoyer</button>
+</form>
