@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+<body>
+
+<div class="background"></div>
+
+<div class="login-card">
+
+    <!-- LEFT FORM -->
+    <div class="card-left">
+        <img src="{% static 'img/logo every home blanc.png' %}" alt="Logo" class="logolog">
+
+        <h2>We are The EveryHome Team</h2>
+        <p class="subtitle">S'identifier à votre compte</p>
+
+        <form>
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+
+            <button type="submit">LOG IN</button>
+        </form>
+
+        <a href="#" class="forgot">Mot de passe oublié ?</a>
+
+        <div class="signup">
+            <span>Vous n'avez pas de compte?</span>
+            <a href="#">Creer un nouveau</a>
+        </div>
+    </div>
+
+    <!-- RIGHT INFO -->
+    <div class="card-right">
+        <h3>We are more than just<br>a company</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+{% endblock %}
