@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'logement',
     'chat',
     'user'
+    'user',
 ]
 
 MIDDLEWARE = [
