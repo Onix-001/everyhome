@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+
+/* FLOATING CARD */
+.login-card {
+    margin: 0 auto;
+    width: 900px;
+    max-width: 75%;
+    height: 520px;
+    margin-top: 8vh;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 8vh;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+}
+
+/* LEFT */
+.card-left {
+    width: 50%;
+    background: #444;
+    color: white;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    width: 70px;
+    margin-bottom: 25px;
+}
+
+.card-left h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+/* FORM */
+form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #999;
+    background: transparent;
+    color: white;
+}
+
+form input::placeholder {
+    color: #ccc;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #f36b21, #e91e63);
+}
+
+/* LINKS */
+.forgot {
+    margin: 20px 0;
+    color: #ccc;
+    text-decoration: none;
+}
+
+.signup {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.signup a {
+    padding: 8px 16px;
+    border: 2px solid #e91e63;
+    color: #e91e63;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* RIGHT */
+.card-right {
+    width: 50%;
+    background: linear-gradient(135deg, #f36b21, #e91e63);
+    color: white;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-right h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.card-right p {
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .login-card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .card-left,
+    .card-right {
+        width: 100%;
+    }
+}
+
+/* logo */
+.logolog {
+    width: 100px;
+    margin-bottom: 3px;
+    margin-top: -25px;
+}
