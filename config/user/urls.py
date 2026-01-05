@@ -4,7 +4,6 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path("chat_room/", views.chat_room, name="chat_room"),
 ]
 
 if settings.DEBUG:
