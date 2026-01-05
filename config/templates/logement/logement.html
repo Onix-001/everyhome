@@ -1,0 +1,120 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Logement — EveryHome{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Logements – EveryHome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="logements.css">
+</head>
+<body>
+
+<!-- HEADER SIMPLE -->
+<header class="header">
+    <h1>Nos logements</h1>
+    <p>Trouvez le logement qui vous correspond</p>
+</header>
+
+<!-- BARRE DE RECHERCHE -->
+<section class="search-section">
+    <div class="search-bar">
+        <input type="text" placeholder="Rechercher par ville, quartier...">
+        <button>🔍</button>
+    </div>
+
+    <div class="filters">
+        <select>
+            <option>Trier par type</option>
+            <option>Studio</option>
+            <option>Appartement</option>
+            <option>Chambre</option>
+            <option>Villa</option>
+        </select>
+
+        <select>
+            <option>Trier par prix</option>
+            <option>Prix croissant</option>
+            <option>Prix décroissant</option>
+        </select>
+
+        <select>
+            <option>Trier par popularité</option>
+            <option>Les plus vus</option>
+            <option>Les mieux notés</option>
+        </select>
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+    <h2>Catégories de logements</h2>
+
+    <div class="category-grid">
+
+        <a href="#" class="category-card">
+            <h3>🏢 Studios</h3>
+            <p>Confort et praticité</p>
+        </a>
+
+        <a href="#" class="category-card">
+            <h3>🏠 Appartements</h3>
+            <p>Espace et modernité</p>
+        </a>
+
+        <a href="#" class="category-card">
+            <h3>🛏️ Chambres</h3>
+            <p>Simplicité et économie</p>
+        </a>
+
+        <a href="#" class="category-card">
+            <h3>🏡 Villas</h3>
+            <p>Luxe et intimité</p>
+        </a>
+
+    </div>
+</section>
+
+<!-- LISTING (aperçu) -->
+<section class="listings">
+    <h2>Logements populaires</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="{% static 'img/photo-13ef.jpg' %}">
+            <div class="card-body">
+                <h4>Studio moderne – Douala</h4>
+                <span>25 000 FCFA / nuit</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'img/ac.avif' %}">
+            <div class="card-body">
+                <h4>Appartement – Yaoundé</h4>
+                <span>40 000 FCFA / nuit</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'img/maison-plage48-2052.avif' %}">
+            <div class="card-body">
+                <h4>Chambre meublée</h4>
+                <span>15 000 FCFA / nuit</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
+
+
+{% endblock %}

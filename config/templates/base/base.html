@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}EveryHome{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="logo"><img src="{% static 'img/4-removebg-preview.png' %}" >Every<span>Home</span></div>
+        <nav>
+            <a href="{% url 'accueil:home' %}">Accueil</a>
+            <a href="{% url 'logement:logement' %}">Logements</a>
+            <a href="#">Contact</a>
+            <a href="#" class="btn">Connexion</a>
+            <a href="#" class="btn2">S'inscrire</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <p>© 2025 EveryHome. Tous droits réservés.</p>
+</footer>
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
+

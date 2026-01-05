@@ -1,0 +1,151 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Accueil — EveryHome{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero" style="background: url('{{ MEDIA_URL }}611bd1cb701a3.jpg') center/cover;">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>Trouvez votre logement meublé</h1>
+        <p>Appartements, studios et chambres disponibles immédiatement</p>
+
+        <form class="search-form">
+            <input type="text" placeholder="Ville">
+            <select>
+                <option>Type de logement</option>
+                <option>Appartement</option>
+                <option>Studio</option>
+                <option>Chambre</option>
+            </select>
+            <input type="number" placeholder="Budget max">
+            <button>Rechercher</button>
+        </form>
+    </div>
+</section>
+
+<!-- CARROUSEL -->
+<section class="carousel">
+    <div class="carousel-container">
+
+        <div class="slide active">
+            <img src="{% static 'img/maison-modulaire-luxe-geneve.jpg' %}" alt="Appartement 1">
+        </div>
+
+        <div class="slide">
+            <img src="{% static 'img/maison-de-luxe.jpg' %}" alt="Appartement 2">
+        </div>
+
+        <div class="slide">
+            <img src="{% static 'img/meilleurarchiteca64.jpg' %}" alt="Appartement 3">
+        </div>
+
+        <div class="slide">
+            <img src="{% static 'img/photo-13ef.jpg' %}" alt="Appartement 3">
+        </div>
+        
+        <div class="slide">
+            <img src="{% static 'img/ac.avif' %}" alt="Appartement 3">
+        </div>
+
+        <div class="slide">
+            <img src="{% static 'img/maison-plage48-2052.avif' %}" alt="Appartement 3">
+        </div>
+
+        <!-- BOUTONS -->
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+
+        <!-- INDICATEURS -->
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- LOGEMENTS -->
+<section class="listings container">
+    <h2>Nos Logements les plus prisés</h2>
+
+    <div class="cards">
+        <div class="card">
+            <img src="{% static 'img/appart2.jpg' %}">
+            <div class="card-body">
+                <h3>Appartement – Douala</h3>
+                <p>2 chambres • Meublé • Wifi</p>
+                <span class="price">30 000 FCFA la nuit</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'img/appart2.jpg' %}">
+            <div class="card-body">
+                <h3>Appartement – Douala</h3>
+                <p>2 chambres • Meublé • Wifi</p>
+                <span class="price">30 000 FCFA la nuit</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'img/appart3.jpg' %}">
+            <div class="card-body">
+                <h3>Appartement – Douala</h3>
+                <p>2 chambres • Meublé • Wifi</p>
+                <span class="price">30 000 FCFA la nuit</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'img/appart4.jpg' %}">
+            <div class="card-body">
+                <h3>Appartement – Douala</h3>
+                <p>2 chambres • Meublé • Wifi</p>
+                <span class="price">30 000 FCFA la nuit</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'img/appart5.jpg' %}">
+            <div class="card-body">
+                <h3>Appartement – Douala</h3>
+                <p>2 chambres • Meublé • Wifi</p>
+                <span class="price">30 000 FCFA la nuit</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'img/appart6.jpg' %}">
+            <div class="card-body">
+                <h3>Appartement – Douala</h3>
+                <p>2 chambres • Meublé • Wifi</p>
+                <span class="price">30 000 FCFA la nuit</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'img/appart7.jpg' %}">
+            <div class="card-body">
+                <h3>Appartement – Douala</h3>
+                <p>2 chambres • Meublé • Wifi</p>
+                <span class="price">30 000 FCFA la nuit</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'img/appart1.jpg' %}">
+            <div class="card-body">
+                <h3>Appartement – Douala</h3>
+                <p>2 chambres • Meublé • Wifi</p>
+                <span class="price">30 000 FCFA la nuit</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'script.js' %}"></script>
+{% endblock %}
