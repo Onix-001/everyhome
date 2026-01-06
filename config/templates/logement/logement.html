@@ -11,21 +11,21 @@
     <meta charset="UTF-8">
     <title>Logements – EveryHome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="logements.css">
+    <link rel="stylesheet" href="{% static 'css/logement.css' %}">
 </head>
 <body>
 
 <!-- HEADER SIMPLE -->
-<header class="header">
-    <h1>Nos logements</h1>
-    <p>Trouvez le logement qui vous correspond</p>
+<header class="header" style="background: url('{{ MEDIA_URL }}meilleurarchiteca64.jpg') center/cover;">
+    <h1 id="titloge">Nos logements</h1>
+    <p id="desloge">Trouvez le logement qui vous correspond</p>
 </header>
 
 <!-- BARRE DE RECHERCHE -->
 <section class="search-section">
     <div class="search-bar">
         <input type="text" placeholder="Rechercher par ville, quartier...">
-        <button>🔍</button>
+        <button><i class="fas fa-search "></i></button>
     </div>
 
     <div class="filters">
@@ -58,22 +58,22 @@
     <div class="category-grid">
 
         <a href="#" class="category-card">
-            <h3>🏢 Studios</h3>
+            <h3><i class="fas fa-building"></i> Studios</h3>
             <p>Confort et praticité</p>
         </a>
 
         <a href="#" class="category-card">
-            <h3>🏠 Appartements</h3>
+            <h3><i class="fas fa-home"></i> Appartements</h3>
             <p>Espace et modernité</p>
         </a>
 
         <a href="#" class="category-card">
-            <h3>🛏️ Chambres</h3>
+            <h3><i class="fas fa-bed"></i> Chambres</h3>
             <p>Simplicité et économie</p>
         </a>
 
         <a href="#" class="category-card">
-            <h3>🏡 Villas</h3>
+            <h3><i class="fas fa-hotel"></i> Villas</h3>
             <p>Luxe et intimité</p>
         </a>
 
@@ -90,6 +90,7 @@
             <img src="{% static 'img/photo-13ef.jpg' %}">
             <div class="card-body">
                 <h4>Studio moderne – Douala</h4>
+                <h4><i class="fas fa-bed"></i>2 lit &nbsp; <i class="fas fa-silverware"></i>1 cuisine &nbsp; <i class="fas fa-sofa">1 Salon</i></h4> 
                 <span>25 000 FCFA / nuit</span>
             </div>
         </div>

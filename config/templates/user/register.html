@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+<div class="container">
+    <div class="signup-box">
+
+        <!-- FORMULAIRE -->
+        <div class="form-section">
+            <h1>Sign up</h1>
+
+            <div class="input-group">
+                <i class="fa fa-user"></i>
+                <input type="text" placeholder="Votre Nom">
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-user"></i>
+                <input type="text" placeholder="Votre Prénom">
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-phone"></i>
+                <input type="number" placeholder="Votre numero de téléphone">
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-envelope"></i>
+                <input type="email" placeholder="Votre adresse Email">
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" placeholder="Password">
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-key"></i>
+                <input type="password" placeholder="Repeat your password">
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" id="terms">
+                <label for="terms">
+                    I agree all statements in
+                    <a href="#">Terms of service</a>
+                </label>
+            </div>
+
+            <button class="btn">REGISTER</button>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="image-section">
+            <img src="{% static 'img/maison-de-luxe_1250.webp' %}" alt="Illustration">
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
