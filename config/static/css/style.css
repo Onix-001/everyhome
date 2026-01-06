@@ -20,14 +20,20 @@ body {
 
 /* NAVBAR */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background: #111;
-    padding: 15px 0;
+    z-index: 1000; /* Assure que la navbar est au-dessus des autres éléments */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ajoute une ombre pour distinguer la navbar */
 }
 
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
 }
 
 .logo {
@@ -379,6 +385,8 @@ footer {
 .search-section {
     padding: 40px 20px;
     background: var(--gris);
+    margin-top: 0; /* Supprime tout espace supplémentaire au-dessus de la barre de recherche */
+    padding-top: 10px; /* Ajoute un petit espace pour éviter que les éléments soient trop collés */
 }
 
 .search-bar {
@@ -498,4 +506,21 @@ footer {
     color: var(--bordeaux);
     font-weight: bold;
 }
+
+/* Style général pour le bouton gerer */
+.btn-outline-primary {
+    margin: 0 auto; 
+    margin-bottom: 10px; 
+    position: relative; 
+    z-index: 1; 
+}
 /*FIN DE PAGE LOGEMENT */
+
+
+#titloge {
+    margin-top: 15px;
+}
+
+#desloge {
+    margin: 0 auto;
+}
