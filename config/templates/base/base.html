@@ -7,18 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}">
 </head>
 <body>
 
 <header class="navbar">
     <div class="container nav-content">
-        <div class="logo"><img src="{% static 'img/4-removebg-preview.png' %}" >Every<span>Home</span></div>
+        <div class="logo"><img src="{% static 'img/logo every home blanc.png' %}" >Every<span>Home</span></div>
         <nav>
             <a href="{% url 'accueil:home' %}">Accueil</a>
             <a href="{% url 'logement:logement' %}">Logements</a>
             <a href="#">Contact</a>
             <a href="{% url 'account:login' %}" class="btn">Connexion</a>
-            <a href="#" class="btn2">S'inscrire</a>
+            <a href="{% url 'account:register' %}" class="btn2">S'inscrire</a>
         </nav>
     </div>
 </header>
