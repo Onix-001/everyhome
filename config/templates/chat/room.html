@@ -1,16 +1,27 @@
-<h2>Chat</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Django</title>
+</head>
+<body>
+    <div id="chat"></div>
+    <input id="message" placeholder="Message...">
+    <button onclick="sendMessage()">Envoyer</button>
 
-<div style="border:1px solid #ccc; height:300px; overflow-y:scroll;">
-    {% for msg in messages %}
-        <p>
-            <strong>{{ msg.sender.username }} :</strong>
-            {{ msg.content }}
-        </p>
-    {% endfor %}
-</div>
+    <script>
+        const socket = new WebSocket("ws://" + window.location.host + "/ws/chat/");
 
-<form method="POST">
-    {% csrf_token %}
-    <input type="text" name="message" placeholder="Votre message" required>
-    <button type="submit">Envoyer</button>
-</form>
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            document.getElementById("chat").innerHTML += "<p>" + data.message + "</p>";
+        };
+
+        function sendMessage() {
+            socket.send(JSON.stringify({
+                "message": document.getElementById("message").value
+            }));
+            document.getElementById("message").value = "";
+        }
+    </script>
+</body>
+</html>
