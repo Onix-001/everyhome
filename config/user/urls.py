@@ -14,8 +14,8 @@ from django.urls import path
 app_name = 'account'
 
 urlpatterns = [
-    path('login', views.login, name='login'),
-    path('register', views.register, name='register'),
+    path('login/', views.login, name='login'),
+    path('register/', views.register, name='register'),
 ]
 if settings.DEBUG:
     urlpatterns += static(
