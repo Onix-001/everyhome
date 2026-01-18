@@ -1,0 +1,330 @@
+{% load static %}
+
+{% block content %}
+
+
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>EveryHome - Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Urbanist:wght@600;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- ************** Gestion du CSS ********* -->
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <script src="{% static 'assets/vendors/js/vendor.bundle.base.js' %}"></script>
+    <!-- CSS Vendors -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/mdi/css/materialdesignicons.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/flag-icon-css/css/flag-icon.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/css/vendor.bundle.base.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/font-awesome/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css' %}" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/sweetalert2.min.css' %}" />
+
+    <style>
+        :root {
+            --bg-nav: #050506;
+            --bg-nav-soft: #151015;
+            --accent: #7b1e24;
+            --accent-soft: #a8333a;
+            --text-main: #ffffff;
+            --text-muted: #c9c9c9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ================= NAVBAR ================= */
+        header.navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: radial-gradient(circle at top left, #3b1518 0, #050506 55%, #050506 100%);
+            color: var(--text-main);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 12px 20px;
+            gap: 20px;
+        }
+
+        .navbar-toggler {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-toggler:hover {
+            color: var(--accent-soft);
+        }
+
+        .logo {
+            font-family: 'Urbanist', system-ui, sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 999px;
+            display: block;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        main {
+            width: 100%;
+        }
+
+        .container-scroller {
+            display: flex;
+            width: 100%;
+            min-height: calc(100vh - 86px);
+            margin-top: 86px;
+        }
+
+        .container-scroller .sidebar {
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .container-scroller .page-body-wrapper {
+            flex: 1;
+            width: 100%;
+            overflow: auto;
+        }
+
+        .container-scroller.sidebar-minimize .sidebar {
+            transform: translateX(-100%);
+        }
+
+        @media (max-width: 768px) {
+            .container-scroller {
+                min-height: calc(100vh - 72px);
+                margin-top: 72px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-content">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                <i class="mdi mdi-menu"></i>
+            </button>
+            <div class="logo">
+                <a href="{% url 'accueil:home' %}"><img src="{% static 'img/logo every home blanc.png' %}" alt="EveryHome" /></a>
+                Every<span>Home</span>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+    <div class="container-scroller">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+                <a class="sidebar-brand brand-logo" href="">
+                    <img src="assets/images/logo.svg" alt="logo" />
+                </a>
+                <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="">
+                    <img src="assets/images/logo-mini.svg" alt="logo" />
+                </a>
+            </div>
+
+
+
+
+
+
+            <ul class="nav">
+                <li class="nav-item nav-profile">
+                    <a href="#" class="nav-link">
+                        <div class="nav-profile-image">
+                            <img src="assets/images/faces/face1.jpg" alt="profile" />
+                            <span class="login-status online"></span>
+                            <!--change to offline or busy as needed-->
+                        </div>
+                        <div class="nav-profile-text d-flex flex-column pr-3">
+                            <span class="font-weight-medium mb-2">TEJIOGNI Marc</span>
+                            <span class="font-weight-normal">8 753 FCFA</span>
+                        </div>
+                        <span class="badge badge-danger text-white ml-3 rounded">3</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="app.php">
+                        <i class="mdi mdi-home menu-icon"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                        <span class="menu-title">Basic UI Elements</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="app.php?views=buttons">
+                                    Buttons
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="app.php?views=dropdowns">
+                                    Dropdowns
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="app.php?views=typography">
+                                    Typography
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="app.php?views=icons">
+                        <i class="mdi mdi-contacts menu-icon"></i>
+                        <span class="menu-title">Icons</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="app.php?views=forms">
+                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                        <span class="menu-title">Forms</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="app.php?views=chartjs">
+                        <i class="mdi mdi-chart-bar menu-icon"></i>
+                        <span class="menu-title">Charts</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="app.php?views=tables">
+                        <i class="mdi mdi-table-large menu-icon"></i>
+                        <span class="menu-title">Tables</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <span class="nav-link" href="#">
+                        <span class="menu-title">Docs</span>
+                    </span>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="mdi mdi-file-document-box menu-icon"></i>
+                        <span class="menu-title">Documentation</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item sidebar-actions">
+                    <div class="nav-link">
+                        <div class="mt-4">
+                            <div class="border-none">
+                                <p class="text-black">Notification</p>
+                            </div>
+                            <ul class="mt-4 pl-0">
+                                <li>Sign Out</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+
+            </ul>
+        </nav>
+
+
+    {% load static %}
+
+<script src="{% static 'assets/vendors/js/vendor.bundle.base.js' %}"></script>
+<script src="{% static 'assets/js/sweetalert2.all.min.js' %}"></script>
+
+<script src="{% static 'assets/vendors/chart.js/Chart.min.js' %}"></script>
+<script src="{% static 'assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js' %}"></script>
+<script src="{% static 'assets/vendors/flot/jquery.flot.js' %}"></script>
+<script src="{% static 'assets/vendors/flot/jquery.flot.resize.js' %}"></script>
+<script src="{% static 'assets/vendors/flot/jquery.flot.categories.js' %}"></script>
+<script src="{% static 'assets/vendors/flot/jquery.flot.fillbetween.js' %}"></script>
+<script src="{% static 'assets/vendors/flot/jquery.flot.stack.js' %}"></script>
+<script src="{% static 'assets/vendors/flot/jquery.flot.pie.js' %}"></script>
+
+<script src="{% static 'assets/js/off-canvas.js' %}"></script>
+<script src="{% static 'assets/js/hoverable-collapse.js' %}"></script>
+<script src="{% static 'assets/js/misc.js' %}"></script>
+<script src="{% static 'assets/js/chart.js' %}"></script>
+
+<script src="{% static 'assets/js/dashboard.js' %}"></script>
+</body>
+
+</html>
+
+{% endblock %}
