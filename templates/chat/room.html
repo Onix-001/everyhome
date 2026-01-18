@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Django</title>
+</head>
+<body>
+    <div id="chat"></div>
+    <input id="message" placeholder="Message...">
+    <button onclick="sendMessage()">Envoyer</button>
+
+    <script>
+        const socket = new WebSocket("ws://" + window.location.host + "/ws/chat/");
+
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            document.getElementById("chat").innerHTML += "<p>" + data.message + "</p>";
+        };
+
+        function sendMessage() {
+            socket.send(JSON.stringify({
+                "message": document.getElementById("message").value
+            }));
+            document.getElementById("message").value = "";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+  Dashboard
+{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Gestion des utilisateurs</h4>
+        <button type="button" class="btn btn-inverse-success btn-icon" title="Ajouter un Utilisateur" onclick="window.location.href='{% url 'account:create' %}';">
+          <i class="mdi mdi-account-plus "></i>
+        </button>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse e-mail</th>
+                <th>Telephone</th>
+                <th>Role</th>
+                <th>Statut</th>
+                <th>Option</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Beck</td>
+                <td>henry</td>
+                <td>01Beck@gmail.com</td>
+                <td>6 77 66 55 44</td>
+                <td>Client</td>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuIconButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actif
+                     <i class="mdi mdi-account"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton7">
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-off text-danger">Désactivé</i>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-check text-success">Activé</i>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td><a class='btn btn-primary' href="#" title="Modifier">
+                    <i class="fa fa-edit"></i>
+                    </a>
+                    <a class='btn btn-danger' href="#" title="Supprimer" onclick="return confirmDelete()">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Messsy </td>
+                <td>Adam</td>
+                <td>adam0000@gmail.com</td>
+                <td>6 44 55 56 55</td>
+                <td>Client</td>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuIconButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actif
+                     <i class="mdi mdi-account"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton7">
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-off text-danger">Désactivé</i>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-check text-success">Activé</i>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td><a class='btn btn-primary' href="#" title="Modifier">
+                    <i class="fa fa-edit"></i>
+                    </a>
+                    <a class='btn btn-danger' href="#" title="Supprimer" onclick="return confirmDelete()">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>John </td>
+                <td>Richards</td>
+                <td>jonnytresh@gmail.com</td>
+                <td>6 99 88 77 66</td>
+                <td>Administrateur</td>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuIconButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actif
+                     <i class="mdi mdi-account"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton7">
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-off text-danger">Désactivé</i>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-check text-success">Activé</i>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td><a class='btn btn-primary' href="#" title="Modifier">
+                    <i class="fa fa-edit"></i>
+                    </a>
+                    <a class='btn btn-danger' href="#" title="Supprimer" onclick="return confirmDelete()">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Peter </td>
+                <td>pan</td>
+                <td>PeterMeggik@gmail.com</td>
+                <td>6 77 54 25 62</td>
+                <td>Client</td>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuIconButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actif
+                     <i class="mdi mdi-account"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton7">
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-off text-danger">Désactivé</i>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-check text-success">Activé</i>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td><a class='btn btn-primary' href="#" title="Modifier">
+                    <i class="fa fa-edit"></i>
+                    </a>
+                    <a class='btn btn-danger' href="#" title="Supprimer" onclick="return confirmDelete()">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Edward</td>
+                <td>Elrick</td>
+                <td>Edard0001@gmail.com</td>
+                <td>6 55 44 33 22</td>
+                <td>Client</td>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuIconButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actif
+                     <i class="mdi mdi-account"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton7">
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-off text-danger">Désactivé</i>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-check text-success">Activé</i>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td><a class='btn btn-primary' href="#" title="Modifier">
+                    <i class="fa fa-edit"></i>
+                    </a>
+                    <a class='btn btn-danger' href="#" title="Supprimer" onclick="return confirmDelete()">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>John </td>
+                <td>Doe</td>
+                <td>Alfonfonee@gmail.com</td>
+                <td>6 95 55 44 33</td>
+                <td>Client</td>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuIconButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actif
+                     <i class="mdi mdi-account"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton7">
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-off text-danger">Désactivé</i>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-check text-success">Activé</i>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td><a class='btn btn-primary' href="#" title="Modifier">
+                    <i class="fa fa-edit"></i>
+                    </a>
+                    <a class='btn btn-danger' href="#" title="Supprimer" onclick="return confirmDelete()">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Bery </td>
+                <td>Alice</td>
+                <td>Henry2222@gmail.com</td>
+                <td>6 99 55 44 33</td>
+                <td>Manager</td>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-success dropdown-toggle" id="dropdownMenuIconButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actif
+                     <i class="mdi mdi-account"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton7">
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-off text-danger">Désactivé</i>
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="mdi mdi-account-check text-success">Activé</i>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td><a class='btn btn-primary' href="#" title="Modifier">
+                     <i class="fa fa-edit"></i>
+                    </a>
+                    <a class='btn btn-danger' href="#" title="Supprimer" onclick="return confirmDelete()">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

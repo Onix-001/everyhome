@@ -1,0 +1,265 @@
+.btn2 {
+    background: #ffffff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: #000000;
+}
+
+.btn2:hover {
+    background: #691118;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255); 
+}
+
+.btn {
+    background: #691118;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #ffffff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: #000000; 
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero .overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    color: white;
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+/* SEARCH */
+.search-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search-form input,
+.search-form select {
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    width: 180px;
+    background-color: white;
+}
+
+.search-form button {
+    background: #7b1e24;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background: #000000;
+}
+
+/* LISTINGS */
+.listings {
+    padding: 60px 20px;
+    background: #f5f5f5;
+}
+
+.listings h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #5a3a2e;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.card-body p {
+    color: #555;
+    font-size: 14px;
+}
+
+.price {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #7b1e24;
+}
+
+/* CAROUSEL */
+.carousel {
+    overflow-x: auto;
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+.carousel::-webkit-scrollbar { display: none; }
+.carousel .carousel-item {
+    min-width: 320px;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.carousel .carousel-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+.carousel .carousel-item .card-body { padding: 15px; }
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* CARROUSSEL */
+/* CARROUSEL */
+.carousel {
+    width: 100%;
+    padding: 60px 0;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BOUTONS */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev:hover, .next:hover {
+    background: #7b1e24;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* DOTS */
+.dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #7b1e24;
+}
