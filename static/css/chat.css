@@ -1,0 +1,201 @@
+/* ===== BODY ===== */
+body {
+    background-color: #ece5dd;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== CONTAINER ===== */
+.chat-container {
+    max-width: 800px;
+    margin: 20px auto;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+/* ===== MESSAGES ===== */
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #e5ddd5;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-message {
+    display: flex;
+    margin-bottom: 12px;
+    max-width: 70%;
+    word-wrap: break-word;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+    position: relative;
+}
+
+/* ===== SELF MESSAGE ===== */
+.chat-message.self {
+    flex-direction: row-reverse;
+    align-self: flex-end; /* Collé à l’extrémité droite */
+}
+
+/* ===== OTHER MESSAGE ===== */
+.chat-message.other {
+    flex-direction: row;
+    align-self: flex-start; /* Collé à l’extrémité gauche */
+}
+
+/* ===== BULLES ===== */
+.chat-message .bubble {
+    padding: 12px 18px;
+    border-radius: 25px;
+    position: relative;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    transition: background 0.3s;
+}
+
+/* Self (vous) */
+.chat-message.self .bubble {
+    background-color: #0b93f6;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+/* Client */
+.chat-message.other.client .bubble {
+    background-color: #ffffff;
+    color: #333;
+    border-bottom-left-radius: 5px;
+}
+
+/* Admin */
+.chat-message.other.admin .bubble {
+    background-color: #ffeeba;
+    color: #333;
+    border-bottom-left-radius: 5px;
+}
+
+/* ===== AVATAR ===== */
+.chat-message img.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* ===== SENDER & TIMESTAMP ===== */
+.chat-message .sender {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.chat-message .timestamp {
+    font-size: 0.65rem;
+    color: #888;
+    text-align: right;
+    margin-top: 4px;
+}
+
+/* ===== DATE SEPARATOR ===== */
+.date-separator {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #555;
+    margin: 20px 0 10px 0;
+    position: relative;
+}
+
+.date-separator::before,
+.date-separator::after {
+    content: "";
+    display: inline-block;
+    width: 40%;
+    height: 1px;
+    background: #ccc;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+/* ===== INPUT ===== */
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+    background: #f0f0f0;
+    padding: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    border: none;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border-radius: 20px;
+    margin-right: 8px;
+}
+
+.chat-input input:focus {
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+}
+
+.chat-input button {
+    border: none;
+    background-color: #0b93f6;
+    color: white;
+    padding: 0 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.chat-input button:hover {
+    background-color: #0a7bd5;
+}
+
+/* ===== TYPING INDICATOR ===== */
+.typing-indicator {
+    font-style: italic;
+    color: #555;
+    margin: 5px 0;
+    font-size: 0.85rem;
+}
+
+/* ===== MESSAGE ACTIONS ===== */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.actions button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #555;
+    margin-left: 5px;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.actions button:hover {
+    color: #0b93f6;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}

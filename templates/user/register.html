@@ -1,0 +1,86 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+<div class="container">
+    <div class="signup-box">
+
+        <!-- FORMULAIRE -->
+        <div class="form-section">
+            <h1>Sign up</h1>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+            <!-- Formulaire POST vers register -->
+            <form action="{% url 'account:register' %}" method="POST">
+                {% csrf_token %}
+
+                <div class="input-group">
+                    <i class="fa fa-user"></i>
+                    <input type="text" name="last_name" placeholder="Votre Nom" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa fa-user"></i>
+                    <input type="text" name="first_name" placeholder="Votre Prénom" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa fa-phone"></i>
+                    <input type="text" name="phone_number" placeholder="Votre numero de téléphone" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Votre adresse Email" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa fa-user"></i>
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" name="password1" placeholder="Password" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa fa-key"></i>
+                    <input type="password" name="password2" placeholder="Repeat your password" required>
+                </div>
+                
+
+
+                <div class="checkbox">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        I agree all statements in
+                        <a href="#">Terms of service</a>
+                    </label>
+                </div>
+
+                <button class="btn3" type="submit">REGISTER</button>
+            </form>
+
+            <!-- Afficher messages -->
+    
+        </div>
+
+        <!-- IMAGE -->
+        <div class="image-section">
+            <img src="{% static 'img/maison-de-luxe_1250.webp' %}" alt="Illustration">
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

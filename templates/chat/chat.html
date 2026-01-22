@@ -1,0 +1,149 @@
+{% extends "base/base.html" %}
+
+{% load static %}
+
+{% block title %}Chat EveryHome{% endblock %}
+
+{% block content %}
+
+
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+<body>
+    
+<div class="chat-container">
+    <div id="chat" class="chat-messages">
+        {% for message in messages %}
+            {% if message.show_date %}
+                <div class="date-separator">{{ message.timestamp|date:"d M Y" }}</div>
+            {% endif %}
+
+            {% if message.sender == user %}
+                <div class="chat-message self" data-id="{{ message.id }}">
+                    <img class="avatar" src="{% static 'img/default-avatar.png' %}">
+                    <div class="bubble">
+                        <span class="sender">Vous</span>
+                        {{ message.content }}
+                        <span class="timestamp">{{ message.timestamp|date:"H:i" }}</span>
+                        <div class="actions">
+                            <button class="edit-btn">✏️</button>
+                            <button class="delete-btn">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="chat-message other {{ message.sender.is_staff|yesno:'admin,client' }}">
+                    <img class="avatar" src="{% static 'img/logo every home blanc.png' %}">
+                    <div class="bubble">
+                        <span class="sender">{{ message.sender.username }}{% if message.sender.is_staff %} (Admin){% endif %}</span>
+                        {{ message.content }}
+                        <span class="timestamp">{{ message.timestamp|date:"H:i" }}</span>
+                    </div>
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>Aucun message pour le moment.</p>
+        {% endfor %}
+    </div>
+
+    <div class="typing-indicator" id="typingIndicator"></div>
+
+    <div class="chat-input">
+        <input id="message" placeholder="Tapez votre message..." autocomplete="off">
+        <button onclick="sendMessage()">Envoyer</button>
+    </div>
+</div>
+
+<script>
+const socket = new WebSocket("ws://" + window.location.host + "/ws/chat/");
+const chatContainer = document.getElementById("chat");
+const input = document.getElementById("message");
+const typingIndicator = document.getElementById("typingIndicator");
+let typingTimeout;
+
+// ===== Ajouter un message =====
+function addMessage(sender, message, isSelf=false, isAdmin=false, timestamp=null, avatar=null, id=null){
+    const msgDiv = document.createElement("div");
+    msgDiv.classList.add("chat-message");
+    if(isSelf) msgDiv.classList.add("self");
+    else { msgDiv.classList.add("other"); msgDiv.classList.add(isAdmin ? "admin" : "client"); }
+
+    if(id) msgDiv.dataset.id = id;
+
+    const avatarImg = document.createElement("img");
+    avatarImg.src = avatar || "{% static 'images/default-avatar.png' %}";
+    avatarImg.classList.add("avatar");
+
+    const bubbleDiv = document.createElement("div");
+    bubbleDiv.classList.add("bubble");
+    bubbleDiv.innerHTML = `<span class="sender">${isSelf ? "Vous" : sender}${isAdmin && !isSelf ? " (Admin)" : ""}</span>
+                           ${message}
+                           <span class="timestamp">${timestamp || ""}</span>
+                           ${isSelf ? `<div class="actions">
+                                         <button class="edit-btn">✏️</button>
+                                         <button class="delete-btn">🗑️</button>
+                                      </div>` : ''}`;
+
+    msgDiv.appendChild(avatarImg);
+    msgDiv.appendChild(bubbleDiv);
+    chatContainer.appendChild(msgDiv);
+    chatContainer.scrollTo({ top: chatContainer.scrollHeight, behavior: "smooth" });
+
+    // Édition et suppression
+    if(isSelf){
+        bubbleDiv.querySelector(".edit-btn").onclick = () => editMessage(id, bubbleDiv);
+        bubbleDiv.querySelector(".delete-btn").onclick = () => deleteMessage(id, msgDiv);
+    }
+}
+
+// ===== Notifications typing =====
+input.addEventListener("input", () => {
+    socket.send(JSON.stringify({"typing": true}));
+    clearTimeout(typingTimeout);
+    typingTimeout = setTimeout(() => socket.send(JSON.stringify({"typing": false})), 2000);
+});
+
+// ===== Réception messages =====
+socket.onmessage = function(e){
+    const data = JSON.parse(e.data);
+    if(data.typing){
+        typingIndicator.textContent = data.is_self ? "" : `${data.sender} est en train de taper...`;
+    } else if(data.message){
+        const isSelf = data.sender === "{{ user.username }}";
+        addMessage(data.sender, data.message, isSelf, data.is_admin, data.timestamp, data.avatar, data.id);
+    }
+};
+
+// ===== Envoyer message =====
+function sendMessage(){
+    if(input.value.trim() !== ""){
+        socket.send(JSON.stringify({"message": input.value}));
+        input.value = "";
+    }
+}
+
+// ===== Modifier message =====
+function editMessage(id, bubbleDiv){
+    const newContent = prompt("Modifier le message:", bubbleDiv.childNodes[1].childNodes[1].textContent);
+    if(newContent) socket.send(JSON.stringify({"edit": id, "new_message": newContent}));
+}
+
+// ===== Supprimer message =====
+function deleteMessage(id, msgDiv){
+    if(confirm("Supprimer ce message ?")) socket.send(JSON.stringify({"delete": id}));
+    msgDiv.remove();
+}
+
+// ===== Touche Entrée =====
+input.addEventListener("keydown", function(e){
+    if(e.key === "Enter" && !e.shiftKey){
+        e.preventDefault();
+        sendMessage();
+    }
+});
+
+// Scroll initial
+chatContainer.scrollTo({ top: chatContainer.scrollHeight, behavior: "auto" });
+</script>
+</body>
+
+{% endblock %}

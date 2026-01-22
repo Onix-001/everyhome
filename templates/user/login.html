@@ -1,0 +1,68 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<div class="background"></div>
+
+<div class="login-card">
+
+    <!-- LEFT FORM -->
+    <div class="card-left">
+        <img src="{% static 'img/logo every home blanc.png' %}" alt="Logo" class="logolog">
+
+        <h2>Nous sommes la Team EveryHome</h2>
+        <p class="subtitle">S'identifier à votre compte</p>
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- FORMULAIRE LOGIN -->
+        <form method="POST" action="{% url 'account:login' %}">
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Nom d'utilisateur ou email"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Mot de passe"
+                required
+            >
+
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <a href="#" class="forgot">Mot de passe oublié ?</a>
+
+        <div class="signup">
+            <span>Vous n'avez pas de compte ?</span>
+            <a href="{% url 'account:register' %}">Créer un nouveau</a>
+        </div>
+    </div>
+
+    <!-- RIGHT INFO -->
+    <div class="card-right">
+        <h3>Nous sommes juste <br>une compagnie</h3>
+        <p>
+            qui vise à proposer des appartements, studios et chambres meublées
+            dans plusieurs villes du Cameroun,
+            afin de faciliter la recherche de logements confortables et fiables.
+        </p>
+    </div>
+
+</div>
+
+{% endblock %}
