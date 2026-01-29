@@ -10,6 +10,7 @@ urlpatterns = [
     path('chat/', include('chat.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('user/', include('user.urls')),
+    path('reservation/', include('reservation.urls')),
 ]
 
 if settings.DEBUG:

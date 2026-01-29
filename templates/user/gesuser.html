@@ -2,11 +2,81 @@
 {% load static %}
 
 {% block title %}
-  Dashboard
+  Gestion des utilisateurs — EveryHome
 {% endblock %}
 
 {% block content %}
   <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+
+
+
+  <header class="navbar">
+    <div class="nav-content">
+
+      <!-- BOUTON SIDEBAR -->
+      <button id="sidebarToggle" class="sidebar-toggle" type="button" aria-label="Toggle sidebar">
+        <i class="mdi mdi-menu"></i>
+      </button>
+
+      <!-- LOGO -->
+      <div class="logo">
+        <a href="{% url 'accueil:home' %}">
+          <img src="{% static 'img/logo every home blanc.png' %}" alt="EveryHome">
+        </a>
+        Every<span>Home</span>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <ul class="nav">
+      <li class="nav-item active">
+        <a href="#" class="nav-link">
+          <i class="mdi mdi-view-dashboard"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{% url 'logement:index' %}" class="nav-link">
+          <i class="mdi mdi-home-city"></i>
+          <span>Logements</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{% url 'reservation:index' %}" class="nav-link">
+          <i class="mdi mdi-calendar-check"></i>
+          <span>Réservations</span>
+        </a>
+      </li>
+      
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="mdi mdi-cash-multiple"></i>
+          <span>Paiements</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'account:gesuser' %}" class="nav-link">
+          <i class="mdi mdi-account-group"></i>
+          <span>Clients</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{% url 'account:login' %}" class="nav-link text-danger">
+          <i class="mdi mdi-logout"></i>
+          <span>Déconnexion</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
 
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
@@ -246,4 +316,31 @@
       </div>
     </div>
   </div>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const toggleBtn = document.getElementById("sidebarToggle");
+      const sidebar = document.querySelector(".sidebar");
+      const colLg12GridMargin = document.querySelector(".col-lg-12.grid-margin.stretch-card");
+
+      if (!toggleBtn || !sidebar || !colLg12GridMargin) {
+          console.error("Sidebar toggle elements not found");
+          return;
+      }
+
+      toggleBtn.addEventListener("click", function () {
+          sidebar.classList.toggle("collapsed");
+          colLg12GridMargin.classList.toggle("collapsed");
+          const icon = toggleBtn.querySelector("i");
+          icon.classList.toggle("mdi-menu");
+          icon.classList.toggle("mdi-menu-open");
+      });
+
+    });
+  </script>
+
+  
 {% endblock %}

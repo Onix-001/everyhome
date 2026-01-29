@@ -1,0 +1,181 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Gestion des Logements — EveryHome{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+<link rel="stylesheet" href="{% static 'css/reservation.css' %}" />
+
+
+  <header class="navbar">
+    <div class="nav-content">
+      <!-- BOUTON SIDEBAR -->
+      <button id="sidebarToggle" class="sidebar-toggle" type="button" aria-label="Toggle sidebar"><i class="mdi mdi-menu"></i></button>
+
+      <!-- LOGO -->
+      <div class="logo">
+        <a href="{% url 'accueil:home' %}"><img src="{% static 'img/logo every home blanc.png' %}" alt="EveryHome" /></a>
+        Every<span>Home</span>
+      </div>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <ul class="nav">
+      <li class="nav-item active">
+        <a href="{% url 'dashboard:dashboard' %}" class="nav-link">
+          <i class="mdi mdi-view-dashboard"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{% url 'logement:index' %}" class="nav-link">
+          <i class="mdi mdi-home-city"></i>
+          <span>Logements</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{% url 'reservation:index' %}" class="nav-link">
+          <i class="mdi mdi-calendar-check"></i>
+          <span>Réservations</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="mdi mdi-cash-multiple"></i>
+          <span>Paiements</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'account:gesuser' %}" class="nav-link">
+          <i class="mdi mdi-account-group"></i>
+          <span>Clients</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link text-danger">
+          <i class="mdi mdi-logout"></i>
+          <span>Déconnexion</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <main class="main-panel">
+    <div class="content-wrapper">
+      <!-- HEADER -->
+      <div class="card mb-4 border-0 shadow-sm">
+        <div class="card-body d-flex justify-content-between align-items-center">
+          <div>
+            <h4 class="mb-1">Réservation #RZ-2026-014</h4>
+            <small class="text-muted">Créée le 10 Mars 2026</small>
+          </div>
+          <span class="badge badge-warning p-2">En attente</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- INFOS -->
+        <div class="col-lg-8">
+          <!-- CLIENT -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">👤 Client</h5>
+              <p>
+                <strong>Nom :</strong> John Doe
+              </p>
+              <p>
+                <strong>Email :</strong> john@email.com
+              </p>
+              <p>
+                <strong>Téléphone :</strong> +237 6xx xxx xxx
+              </p>
+            </div>
+          </div>
+
+          <!-- LOGEMENT -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">🏠 Logement</h5>
+              <p>
+                <strong>Nom :</strong> Appartement Bonapriso
+              </p>
+              <p>
+                <strong>Ville :</strong> Douala
+              </p>
+              <p>
+                <strong>Prix / nuit :</strong> 35 000 FCFA
+              </p>
+            </div>
+          </div>
+
+          <!-- DATES -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">📅 Séjour</h5>
+              <p>
+                <strong>Arrivée :</strong> 12 Mars 2026
+              </p>
+              <p>
+                <strong>Départ :</strong> 15 Mars 2026
+              </p>
+              <p>
+                <strong>Nuits :</strong> 3
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- GESTION -->
+        <div class="col-lg-4">
+          <!-- PAIEMENT -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">💳 Paiement</h5>
+              <p>
+                <strong>Total :</strong> 105 000 FCFA
+              </p>
+              <p>
+                <strong>Méthode :</strong> Mobile Money
+              </p>
+              <span class="badge badge-danger">Non payé</span>
+            </div>
+          </div>
+
+          <!-- ACTIONS ADMIN -->
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">⚙️ Actions admin</h5>
+              <div class="d-grid gap-2">
+                <button class="btn btn-success">Confirmer</button>
+                <button class="btn btn-danger">Annuler</button>
+                <button class="btn btn-warning">Marquer payé</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HISTORIQUE -->
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">📜 Historique</h5>
+          <ul class="list-group">
+            <li class="list-group-item">10/03 – Réservation créée</li>
+            <li class="list-group-item">11/03 – Paiement en attente</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="{% static 'js/dashboard.js' %}"></script>
+
+
+{% endblock %}

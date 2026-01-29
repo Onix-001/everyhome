@@ -1,5 +1,5 @@
 .btn2 {
-    background: #ffffff;
+    background: #894a4a;
     padding: 8px 16px;
     border-radius: 5px;
     color: #000000;
@@ -9,7 +9,7 @@
     background: #691118;
     padding: 8px 16px;
     border-radius: 5px;
-    color: rgb(255, 255, 255); 
+    color: rgb(26, 10, 100); 
 }
 
 .btn {
@@ -19,7 +19,7 @@
 }
 
 .btn:hover {
-    background: #ffffff;
+    background: #e155609c;
     padding: 8px 16px;
     border-radius: 5px;
     color: #000000; 
