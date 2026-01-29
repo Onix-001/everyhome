@@ -1,0 +1,132 @@
+/* ===============================
+   RESERVATION PAGE
+================================ */
+
+.main-panel {
+    margin-left: 240px;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+}
+
+.sidebar.collapsed + .main-panel {
+    margin-left: 80px;
+}
+
+.content-wrapper {
+    padding: 20px;
+}
+
+
+
+
+
+
+/* ===============================
+   FIN RESERVATION PAGE
+================================ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+   DEBUT DE DETAIL RESERVATION PAGE
+================================ */
+
+
+
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(2px);
+}
+
+
+.card-title {
+    font-size: 15px;
+    margin-bottom: 0.5rem;
+}
+
+h4, h5 {
+    font-size: 16px;
+    margin-bottom: 0.4rem;
+}
+
+.badge {
+    font-size: 14px;
+}
+
+
+/* Contenir le contenu principal */
+.content-wrapper {
+    max-width: 1200px;   /* 👈 clé du problème */
+    margin: 0 auto;
+    padding: 1rem 1.2rem !important;
+}
+
+
+
+.content-wrapper {
+    padding: 1.2rem !important;
+}
+
+.badge {
+    font-size: 12px;
+    padding: 5px 8px;
+}
+
+
+.card {
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+}
+
+.card-body {
+    padding: 0.9rem 1rem;
+}
+
+
+
+@media (max-width: 768px) {
+    h4 {
+        font-size: 15px;
+    }
+
+    .card-body {
+        padding: 0.8rem;
+    }
+}
+
+
+
+
+/* ===============================
+   FIN DE DETAIL RESERVATION PAGE
+================================ */
+
+
+
+/* ===============================
+   DEBUT DES CARTE POUR LA PAGE RESERVATION
+================================ */
+
+.row mb-4{
+   width: 900px;
+}
+
+
+
+/* ===============================
+   FIN DES CARTE POUR LA PAGE RESERVATION
+================================ */

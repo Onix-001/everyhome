@@ -1,47 +1,194 @@
-<div class="col-12 grid-margin stretch-card">
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Basic form elements</h4>
-      <p class="card-description">Basic form elements</p>
-      <form class="forms-sample">
-        <div class="form-group">
-          <label for="exampleInputName1">Name</label>
-          <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" />
+{% load static %}
+
+{% block content %}
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>EveryHome - Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Urbanist:wght@600;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- ************** Gestion du CSS ********* -->
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/sweetalert2.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+</head>
+
+
+<body>
+    <header class="navbar">
+        <div class="nav-content">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize"><i
+                    class="mdi mdi-menu"></i></button>
+            <div class="logo">
+                <a href="{% url 'accueil:home' %}"><img src="{% static 'img/logo every home blanc.png' %}"
+                        alt="EveryHome" /></a>
+                Every<span>Home</span>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="exampleInputEmail3">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" />
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword4">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" />
-        </div>
-        <div class="form-group">
-          <label for="exampleSelectGender">Gender</label>
-          <select class="form-control" id="exampleSelectGender">
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>File upload</label>
-          <input type="file" name="img[]" class="file-upload-default" />
-          <div class="input-group col-xs-12">
-            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" />
-            <span class="input-group-append"><button class="file-upload-browse btn btn-primary" type="button">Upload</button></span>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputCity1">City</label>
-          <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location" />
-        </div>
-        <div class="form-group">
-          <label for="exampleTextarea1">Textarea</label>
-          <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary mr-2">Submit</button>
-        <button class="btn btn-light">Cancel</button>
-      </form>
+    </header>
+
+    <div class="sidebar"> 
+        <ul class="nav">
+            <li class="nav-item active">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-view-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-home-city"></i>
+                    <span>Logements</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-calendar-check"></i>
+                    <span>Réservations</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-cash-multiple"></i>
+                    <span>Paiements</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="mdi mdi-account-group"></i>
+                    <span>Clients</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link text-danger">
+                    <i class="mdi mdi-logout"></i>
+                    <span>Déconnexion</span>
+                </a>
+            </li>
+        </ul>
     </div>
-  </div>
-</div>
+
+
+
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <!-- TITRE -->
+            <div class="page-header">
+                <h3 class="page-title">Tableau de bord</h3>
+            </div>
+
+            <!-- CARTES STATS -->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card text-white bg-dark mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Logements</h5>
+                            <h3>128</h3>
+                            <p>Logements publiés</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Réservations</h5>
+                            <h3>54</h3>
+                            <p>En cours</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Paiements</h5>
+                            <h3>1 250 000 FCFA</h3>
+                            <p>Revenus</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card text-white bg-warning mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Avis</h5>
+                            <h3>89</h3>
+                            <p>Clients satisfaits</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLE LOGEMENTS -->
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title">Derniers logements</h4>
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Ville</th>
+                                <th>Prix / nuit</th>
+                                <th>Catégorie</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Appartement Bonapriso</td>
+                                <td>Douala</td>
+                                <td>35 000 FCFA</td>
+                                <td>Appartement</td>
+                                <td>
+                                    <span class="badge badge-success">Disponible</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Studio Bastos</td>
+                                <td>Yaoundé</td>
+                                <td>20 000 FCFA</td>
+                                <td>Studio</td>
+                                <td>
+                                    <span class="badge badge-warning">Réservé</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+      document.querySelector(".navbar-toggler").addEventListener("click", function () {
+      document.querySelector(".sidebar").classList.toggle("collapsed");
+      });
+    </script>
+
+
+    {% load static %}
+
+</body>
+
+</html>
+{% endblock %}
